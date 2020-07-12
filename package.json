@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/Tadeuf/nodejs-rest#readme",
   "dependencies": {
-    "express": "4.17.1"
+    "body-parser": "1.19.0",
+    "consign": "0.1.6",
+    "express": "4.17.1",
+    "moment": "2.24.0",
+    "mysql": "2.17.1"
   },
   "devDependencies": {
     "nodemon": "1.19.2"

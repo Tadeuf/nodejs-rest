@@ -1,6 +1,15 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const customExpress = require('./config/customExpress')
+const conexao = require('./infraestrutura/conexao')
+const Tabelas = require('./infraestrutura/tabelas')
 
-app.get('/atendimentos', (req, res) => res.send('Pagina inicial do Petshop!'))
-app.listen(port, () => console.log(`Example app listening on port port!`))
+conexao.connect(erro => {
+    if(erro) {
+        console.log(erro)
+    } else {
+        console.log("Conexion OK")
+        Tabelas.init(conexao)
+        const app = customExpress() 
+        const port = 3000
+        app.listen(port, () => console.log(`Example app listening on port port!`))
+    }
+})
